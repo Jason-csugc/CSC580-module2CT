@@ -32,3 +32,9 @@ This repository contains a TensorFlow/Keras-based MNIST classifier implementatio
 - Provides structured evaluation for coursework questions.
 - GUI / plotting uses `matplotlib` for misclassified examples.
 
+## Outputs
+
+1. Command line results
+
+2. Images of misclassified characters
+
