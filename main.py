@@ -36,11 +36,10 @@ def model_evaluation(x_train, y_train, x_test, y_test, batch_size=100, epochs=20
     """
     if add_hidden_layer:
         model = tf.keras.Sequential([
-            #tf.keras.layers.Dense(neurons, activation='relu', input_shape=(784,)),
             tf.keras.Input(shape=(784,)),
             tf.keras.layers.Dense(neurons, activation='relu'),
             tf.keras.layers.Dense(int(neurons//2), activation='relu'),
-            tf.keras.layers.Dense(10, activation='softmax') 
+            tf.keras.layers.Dense(10, activation='softmax')
         ])
     else:
         model = tf.keras.Sequential([
@@ -60,7 +59,7 @@ def model_evaluation(x_train, y_train, x_test, y_test, batch_size=100, epochs=20
         epochs=epochs,
         batch_size=batch_size,
         validation_split=0.083,
-        verbose=0
+       verbose=0
     )
 
     _, test_acc = model.evaluate(x_test, y_test)
@@ -123,19 +122,19 @@ def main():
 
     # answer 7 questions from assignment
     print('What is the accuracy of the model?')
-    _,default_accuracy = model_evaluation(X_train, Y_train, X_test, Y_test)
+    default_predictions,default_accuracy = model_evaluation(X_train, Y_train, X_test, Y_test)
     accuracy_tracker(default_accuracy)
     print(f'Default Model Accuracy: {default_accuracy:.4f}')
 
     print('What are some of the misclassified images?')
-    predictions, _ = model_evaluation(X_train, Y_train, X_test, Y_test)
     misclassified = np.where(
-        np.argmax(predictions, axis=1) != np.argmax(Y_test, axis=1)
+        np.argmax(default_predictions, axis=1) != np.argmax(Y_test, axis=1)
     )[0]
     print(f'Number of misclassified images: {len(misclassified)}')
     for i in misclassified[:5]:
+        plt.figure(f"Misclassified Image Dataset #{i}")
         plt.imshow(X_test[i].reshape(28,28), cmap='gray')
-        plt.title(f'Predicted: {np.argmax(predictions[i])}, Actual: {np.argmax(Y_test[i])}')
+        plt.title(f'Predicted: {np.argmax(default_predictions[i])}, Actual: {np.argmax(Y_test[i])}')
         plt.show()
 
     print('How is the accuracy affected by using more hidden neurons? Fewer hidden neurons?')
