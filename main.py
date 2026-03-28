@@ -139,12 +139,12 @@ def main():
 
     print('How is the accuracy affected by using more hidden neurons? Fewer hidden neurons?')
     hidden_neurons = [128, 512, 1024]
-    accuracy_results = {}
+    hn_accuracy_results = {}
     for neurons in hidden_neurons:
         _, accuracy = model_evaluation(X_train, Y_train, X_test, Y_test, neurons=neurons)
         accuracy_tracker(accuracy)
-        accuracy_results[neurons] = accuracy
-    for neurons, accuracy in accuracy_results.items():
+        hn_accuracy_results[neurons] = accuracy
+    for neurons, accuracy in hn_accuracy_results.items():
         print(f'Hidden Neurons: {neurons}, Test Accuracy: {accuracy:.4f}')
 
     print('How is the accuracy affected by using different learning rates? Try a range of at least four values.')
@@ -170,7 +170,7 @@ def main():
         bz_accuracy_results[batch_size] = accuracy
         accuracy_tracker(accuracy)
 
-    for batch_size, accuracy in accuracy_results.items():
+    for batch_size, accuracy in bz_accuracy_results.items():
         print(f"Batch Size: {batch_size}, Test Accuracy: {accuracy:.4f}")
 
     print('What is the best accuracy you can get from this multi-layer perceptron?')
