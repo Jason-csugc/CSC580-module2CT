@@ -158,6 +158,9 @@ def main():
         print(f"Learning Rate: {lr}, Test Accuracy: {accuracy:.4f}")
     
     print('How is accuracy affected by adding another hidden layer?')
+    _, accuracy_with_hidden_layer = model_evaluation(X_train, Y_train, X_test, Y_test, add_hidden_layer=True)
+    accuracy_tracker(accuracy_with_hidden_layer)
+    print(f'Accuracy with additional hidden layer: {accuracy_with_hidden_layer:.4f}')
 
     print('How is accuracy affected by using different batch sizes? Try at least three different batch sizes.')
     batch_sizes = [32, 100, 256]
