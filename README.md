@@ -35,7 +35,7 @@ This repository contains a TensorFlow/Keras-based MNIST classifier implementatio
 ## Outputs
 
 1. Command line results
-<img width="1276" height="993" alt="image" src="https://github.com/user-attachments/assets/9b763cc0-fd83-4efe-972a-14b0b959941e" />
+<img width="1261" height="1052" alt="image" src="https://github.com/user-attachments/assets/fb318467-81dd-48f5-9ae6-8559a963531f" />
 
 2. Images of misclassified characters
 <img width="648" height="552" alt="image" src="https://github.com/user-attachments/assets/326b96b2-66d4-4b5b-bdbb-443c08b8a1f8" />
